@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interface</title>
+
+    <style>
+        body {
+            background-color: brown;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .painel {
+            background-color: aliceblue;
+            width: 90%;
+            max-width: 500px;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .painel img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        .painel h1, .painel h2 {
+            margin: 15px 0;
+        }
+        #sim, #nao {
+            height: 40px;
+            width: 60px;
+            background-color: red;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+        }
+        #sim {
+            margin-right: 20px;
+        }
+        #nao {
+            position: absolute;
+        }
+        
+        /* Responsividade para dispositivos menores */
+        @media (max-width: 600px) {
+            #sim, #nao {
+                width: 50px;
+                height: 35px;
+            }
+            .painel img {
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="painel">
+        <h1>Te amo minha vida</h1>
+        <img src="https://gifman.net/wp-content/uploads/2019/06/ursinho-fofo-apaixonado.gif" alt="Ursinho apaixonado">
+        <h2>Aceita namorar comigo?</h2>
+        <a href="https://www.pensador.com/amo_minha_namorada/"><button id="sim">Sim!</button></a>
+        <button onmouseover="fuja()" id="nao">Não!</button>
+    </div>
+
+    <script>
+        function fuja(){
+            var botaoNao = document.getElementById("nao");
+            var largurajanela = window.innerWidth;
+            var alturajanela = window.innerHeight;
+
+            var maxX = largurajanela - botaoNao.offsetWidth;
+            var maxY = alturajanela - botaoNao.offsetHeight;
+
+            var aleatorioX = Math.floor(Math.random() * maxX);
+            var aleatorioY = Math.floor(Math.random() * maxY);
+
+            botaoNao.style.left = aleatorioX + "px";
+            botaoNao.style.top = aleatorioY + "px";
+        }
+    </script>
+</body>
+</html>
